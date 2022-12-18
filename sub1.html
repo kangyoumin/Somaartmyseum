@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>미술관소개</title>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Raleway:wght@500&display=swap');
+      *{
+         margin: 0;
+         padding: 0;
+         text-decoration: none;
+         list-style: none;
+         box-sizing: border-box;
+         font-family: 'Inter';
+         font-style: normal;
+      }
+
+
+      /* //nav color// */
+
+      .navi{
+         width: 100%;
+         background-color: rgba(255, 255, 255,0);
+         z-index: 2100;
+         
+         /* display: flex; 
+         
+         align-items: center; */
+         /* justify-content: space-between; */
+         padding-top: 35px;
+         text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+/*         position: absolute;*/
+         position: fixed;
+         
+      }
+      .ee{
+    margin: 0 auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px; 
+   /* background-color: #EF8632; */
+}
+.active{
+    background-color: rgba(255, 255, 255, 0.9);
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    z-index: 2000;
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+  }
+
+
+  .active ul li a{
+    color: #474747;
+  }
+  .active a.lang{
+   color: #474747;
+  }
+  .active ul li a
+  .deactive{
+    
+    background-color: transparent;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    
+    -webkit-transition-duration:0.4s;
+    -webkit-transition-timing-function:ease;
+  }
+
+
+
+      /*헤더시작*/
+
+      .top{
+         height: 500px;
+         display: flex; 
+         flex-direction: column;
+         justify-content: space-between;
+         align-items: center;
+
+         position:relative;
+         
+         background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.3), rgba(0,0,0,0.45)), url(https://i.postimg.cc/CxPBjVXK/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      
+
+      .navi .logo1{
+         background-image: url(https://i.postimg.cc/YCK7mLDq/image.png);
+         background-position: center;
+            background-repeat: no-repeat;
+           background-size: cover;
+           width: 113px;
+           height: 50.65px;
+      }
+
+      .Menu{
+         display: flex; 
+         flex-wrap: wrap; 
+         justify-content: center;
+         gap: 25px;
+      }
+
+      .Menu a{
+         color: white;
+         font-weight: 400;
+         font-size: 16px;
+         line-height: 19px;
+         transition: all ease 0.2s;
+      }
+
+      .Menu a:hover{
+         font-weight: 700;
+         font-size: 17px;
+      }
+
+      .lang{
+         color: white;
+         font-size: 12px;
+         line-height: 15px;
+      }
+
+      .title{
+         /* display: flex;  */
+         /* flex-direction: column; */
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 40px;
+         margin-top: 377px;
+         /* background-color: aqua; */
+      }
+
+      .title h1{
+         color: white;
+         text-align: center;    
+         font-weight: 700;
+         font-size: 40px;
+         line-height: 48px;
+         letter-spacing: 0.03em;
+         text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .lower{
+         width: 1000px;
+         display: flex; 
+         justify-content: space-between;
+         align-items: flex-end;
+         /* background-color: beige; */
+      }
+
+      .bk a{
+         color: white;
+         background: rgba(239, 134, 50, 0.5);
+         border-radius: 15px;
+         text-align: center;
+         height: 30px;
+
+         display: inline-block;
+          padding: 8px 29px;
+
+          font-weight: 500;
+         font-size: 12px;
+         line-height: 15px;
+         letter-spacing: 0.03em;
+
+         transition: all ease 0.3s;
+      }
+
+      .bk a:hover{
+         background-color: #EF8632;
+      }
+
+      .oline{
+         width: 80px;
+         height: 4px;
+         background-color: #EF8632;
+         margin-left: -40px;
+         text-align: center;
+      }
+
+      .icon{
+         width: 90px;
+         height: 30px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         /* margin-left: 371px; */
+      }
+
+      .ham{
+         width: 30px;
+         height: 19px;
+         background-image: url(https://i.postimg.cc/hPxL0Nsb/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         position: relative;
+      }
+
+      .hovermenu{
+         right:  0px;        /*   햄버거 메뉴 나오는 부분 높이값 */
+         top: 50px;
+         position: absolute;
+         width: 120px;
+         height: 200px;
+         background-color: #FEF5EF;
+         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+         border-radius: 5px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: column;
+         z-index: 100;
+         position: absolute;
+         transition: all ease 0.3s;
+
+         opacity: 0;
+      }
+
+      .hovermenu a{
+         font-weight: 500;
+         font-size: 16px;
+         line-height: 19px;
+         color: #F29E5B;
+         margin-bottom: 15px;
+      }
+
+      .hovermenu a:hover{
+         font-weight: 700;
+         color: #EF8632;
+      }
+
+      .inmenu{
+         margin-top: 39px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: column;
+      }
+
+      .ham:hover .hovermenu{
+         opacity: 1;
+      }
+
+   
+/*      헤더 끝*/
+/*      메인 시작*/
+
+      .content{
+         width: 1004px;
+         margin-right: auto;
+         margin-left: auto;
+         margin-top: 100px;
+         margin-bottom: 100px;
+      }
+
+
+      .con1{
+         width: 1004px;
+         display: flex; 
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 50px;
+      }
+
+      .w1{
+         display: flex; 
+         margin-top: 30px;
+      }
+
+      .w2{
+         margin-top: 30px;
+      }
+
+      .box{
+         width: 8px;
+         height: 72px;
+         background-color: #EF8632;
+      }
+
+      .w1 h2{
+         font-weight: 700;
+         font-size: 30px;
+         line-height: 36px;
+         letter-spacing: 0.03em;
+         color: #474747;
+         margin-left: 20px;
+      }
+
+      .w2 p{
+         font-weight: 400;
+         font-size: 16px;
+         line-height: 30px;
+         color: #474747;
+      }
+
+/*      메인 끝*/
+
+
+
+      /* 푸터 시작 */
+
+      footer{
+         background-color: #3F3632;
+         color: #B2AFAD;
+         text-align: center;
+         align-items: center;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      footer a{
+         color: #B2AFAD;
+      }
+
+      .footertop{
+         width: 1000px;
+         height: 200px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         text-align: left;
+      }
+
+      .sec{
+         height: 71px;
+         display: flex;
+         align-items: left;
+         flex-direction: column;
+         justify-content: space-between;
+      }
+
+      .sec1{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2inner{
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .sec2 .iandf{
+         margin-left: 15px;
+      }
+
+      .sec3 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec3 h2{
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .footerbottom{
+         width: 1000px;
+         height: 150px;
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+      }
+
+      hr{
+         border-color: rgba(225, 225, 225, 0.6);
+      }
+
+      .footerbottom p{
+         margin-top: 75px;
+         font-weight: 300;
+         font-size: 12px;
+         line-height: 15px;
+      }
+
+/*   푸터 끝   */
+
+
+   </style>
+
+</head>
+<body>
+   <header>
+      <div class="top">
+            <div class="navi deactive" id="navbar">
+               <div class="ee">
+               <a class="logo1" href="index.html"></a>
+               <ul class="Menu">
+                  <li><a href="sub1.html">미술관 소개</a></li>
+                  <li><a href="sub2-1.html">시설 안내</a></li>
+                  <li><a href="sub3-1.html">전시</a></li>
+                  <li><a href="sub4-1.html">올림픽조각공원</a></li>
+                  <li><a href="#">ON SOMA</a></li>
+                  <li><a href="#">아카데미 교육</a></li>
+               </ul>
+               <a class="lang" href="#"><b>KOR</b> | ENG</a>
+               </div>
+            </div>
+
+            <div class="title">
+               <h1>미술관 소개</h1>
+               <div class="lower">
+                  <div class="bk">
+                     <a href="#">전시관람 예약</a>
+                  </div>
+                  <div class="oline"></div>
+                  <div class="icon">
+                     <img src="https://i.postimg.cc/2jgdhCQS/image.png" width="30px" height="30px">
+                     <div class="ham">
+                           <div class="hovermenu">
+                              <div class="inmenu">
+                                 <a href="#">오시는 길</a>
+                                 <a href="#">소마 소식</a>
+                                 <a href="#">시설 대관</a>
+                                 <a href="#">교육 신청</a>
+                              </div>
+                           </div>
+                     </div>
+                     <!-- <img class="ham" src="https://i.postimg.cc/hPxL0Nsb/image.png" width="30px" height="19px"> -->
+                  </div>
+               </div>
+            </div>
+      </div>
+   </header>
+
+   <div class="content">
+      <div class="con1">
+         <img src="https://i.postimg.cc/5tG5gJhg/1.png">
+         <div class="writing">
+            <div class="w1">
+               <div class="box"></div>
+               <h2>자연과 소통하는<br>도심 속의 예술 쉼터</h2>
+            </div>
+            <div class="w2">
+               <p>세계의 조각 작품들과 조경이 조화를 이룬 692,367.2㎡의 조각공원 안에 자리 잡은 소마미술관은 서울 올림픽의 성과를 예술로 승화하는 기념공간이자 휴식공간입니다.<br><br>미술관에서 나와 자연스럽게 연결되는 조각공원의 황톳길을 따라 걷다 보면 조각 작품들과 자연을 동시에 감상할 수 있습니다. 창밖으로 조각공원의 전경이 펼쳐지는 개방적이고 확장된 공간이 되는 실내 전시공간을 갖춘 1관, 그리고 지하철 9호선과 연결된 2관 등 소마미술관은 자연과 인간, 예술과 건축이 어우러진 색다른 풍경을 만들어 자연과 공존하는 소통의 공간구조를 더욱 실감하게 합니다. 이렇듯 소마미술관은 평화의 광장, 몽촌토성 등 주변의 문화공간을 이어주는 중심으로서 주변의 자연적인 요소들을 시설에 연결하고 서로 다른 풍경을 맺어주는 산책로가 되도록 계획되어졌습니다.</p>ㅁ
+            </div>
+         </div>
+      </div>
+      <div class="con2">
+         <img src="https://i.postimg.cc/2yNQpw8B/2.png">
+         <div class="writing">
+            <div class="w1">
+               <div class="box"></div>
+               <h2>풍경과 건축이<br>아름다운 미술관</h2>
+            </div>
+            <div class="w2">
+               <p>지하공간으로 이루어진 2관으로 구성되어 있으며, 거친 터치의 노출 콘크리트와 다듬어지지 않은 목재 마감재를 이용한 자연친화적이고 현대적인 감각의 건축물입니다.<br><br>소마미술관 1관의 전시공간은 6개로 이루어져 있으며 창을 통해 자연광이 그대로 투과되어 시간과 날씨, 창의 크기에 따라 은근한, 혹은 매우 밝고 투명한 채광 효과를 보입니다.미술관 내부와 외부공간을 수시로 넘나드는 시각적 공간적 개방성으로 인해 관람 동선 또한 매우 역동적입니다. 단순하고 세련된 모습의 네모난 나무상자 같은 전시동과 공간들이 지형에 순응하고 공간의 특성과 기능에 따라 땅과 적절하게 만나게 되며, 지면 차이와 공간의 높이를 이용하여 수평성을 강조하면서 유기적인 순환체계를 형성하고 있습니다. 반듯하게 서 있는 건축과 공간마다 배치된 시설물(통창, 회랑, 물의 뜰)들이 자연과 함께 어우러지는 모습들은 하나의 또 다른 풍경입니다.2관의 실내 전시공간은 서로 연결된 전시실과 독립된 전시실을 포함한 총 4개의 전시실로 이루어져 있으며, 화이트톤의 밝고 현대적 감각으로 설계되었습니다.2관의 실내 전시공간은 서로 연결된 전시실과 독립된 전시실들로 이루어져 화이트톤의 밝고 현대적 감각으로 설계되었습니다.<br><br>지하철과 올림픽공원, 그리고 소마미술관 1관을 연결하는 지하공간에 하늘이 보이는 전시공간을 더하여 자연의 풍경을 담은 문화공간으로서의 모습을 보여줍니다.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <footer>
+         <div class="footertop">
+
+            <div class="sec sec1">
+               <div class="link">
+                  <a class="footer1" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200216" target="_blank">・ 개인정보처리방침</a>
+                  <a class="footer2" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200218" target="_blank">・ 홈페이지저작권정책</a>
+               </div>
+               <div class="add">
+                  <p>(05540) 서울시 송파구 올림픽로 424<br>(방이동, 올림픽공원) 소마미술관</p>
+               </div>
+            </div>
+
+            <div class="sec sec2">
+               <p>FOLLOW US</p>
+               <div class="sec2inner">
+                  <div class="yandb">
+                     <div class="1">
+                        <a class="yt" href="https://www.youtube.com/channel/UCSqM3n8PAPCPD7SGXd7UfAQ" target="_blank">Youtube</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                     <div class="2">
+                        <a class="blog" href="https://blog.naver.com/somamuseum" target="_blank">Naver Blog</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                  </div>
+                  <div class="iandf">
+                     <div class="3">
+                        <a class="ins" href="https://www.instagram.com/soma_museum/" target="_blank">Instagram</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                     <div class="4">
+                        <a class="face" href="https://www.facebook.com/SOMAmuseum/" target="_blank">Instagram</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="sec sec3">
+               <p>CONTACT US</p>
+               <h2>TEL 02-425-1077<br>FAX 02-410-1339</h2>
+            </div>
+         </div>
+
+         <div class="footerbottom">
+            <hr class="line">
+            <p>COPYRIGHT ⓒ 2019 Seoul Olympic Museum of Arts. ALL RIGHTS RESERVED.</p>
+         </div>
+   </footer>
+
+
+   <script>
+      $(function(){
+    // 스크롤 시 header fade-in
+    $(document).on('scroll', function(){
+        if($(window).scrollTop() > 100){
+            $("#navbar").removeClass("deactive");
+            $("#navbar").addClass("active");
+        }else{
+            $("#navbar").removeClass("active");
+            $("#navbar").addClass("deactive");
+        }
+    })
+
+});
+   </script>
+</body>
+</html>
+
+            

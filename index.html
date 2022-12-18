@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>웹퍼기말</title>
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Raleway:wght@500&display=swap');
+
+      *{
+         margin: 0;
+         padding: 0;
+         text-decoration: none;
+         list-style: none;
+         box-sizing: border-box;
+         font-family: 'Inter';
+         font-style: normal;
+      }
+
+      .bg{
+         display: flex; 
+         height: 100vh;
+         background-color: #FEF5EF;
+      }
+
+      /*   왼쪽상단 시작   */
+
+      .left{
+         width: 50vw;
+      }
+
+      .navi{
+         display: flex; 
+         align-items: center;
+         justify-content: space-between;
+         margin: 50px;
+      }
+
+      .navi .lang{
+         color: #A58479;
+         font-size: 14px;
+      }
+
+      .navi .expl{
+         color: #EF8632;
+         font-size: 18px;
+      }
+
+      .innernavi{
+         display: flex;
+         align-items: center;
+         justify-content: center; 
+      }
+
+      .ham{
+         margin-left: 30px;
+      }
+
+      /*   왼쪽상단   끝 */
+      /*  왼쪽하단 시작*/
+
+      .mainstuff{
+         display: flex; 
+         flex-wrap: wrap; 
+         justify-content: space-between;
+         position: relative;
+         height: 85vh;
+         margin-left: 50px;
+         margin-right: 50px;
+      }
+
+      .manulist{
+         position:absolute;
+         bottom: 11vh;
+      }
+
+      .logo{
+         position:absolute; 
+         bottom: 11vh;
+         right: 0;
+      }
+
+      .mn{
+            
+            /* height: 50px; */
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 40px;
+            align-items: center;
+      }
+
+
+      .menu{
+         width: 10px;
+         height: 10px;
+         background-color: #A58479;
+         border-radius: 5px;
+      } 
+
+      
+
+      .mn a{
+         font-weight: 700;
+         font-size: 16px;
+         /* line-height: 19px; */
+         color: #A58479;
+         margin-left: 12px;
+         opacity: 0;
+         transition: all ease 0.3s;
+      }
+
+      .mn:hover a{
+         opacity: 1;
+      }
+
+      #num4{
+         margin-bottom: 0px;
+      }
+
+      /*왼쪽하단 끝*/
+      /* 오른쪽 */
+
+      .navigation{
+         width: 50vw;
+         height: 100vh;
+         font-size: 24px;
+         display: flex;
+         flex-flow: row nowrap;
+         flex-direction: column;
+      }
+
+      .right a{
+         flex-grow: 1;
+         transition: flex-grow 0.5s ease;
+         position: relative;
+      }
+
+      .right h1{
+         color: white;
+         font-size: 24px;
+         text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .right p{
+         color: white;
+         text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+         font-size: 18px;
+         margin-left: 20px;
+         opacity: 0;
+         transition: all ease 0.5s;
+      }
+
+      a .overlay2{
+         display: flex;
+         flex-direction: row;
+         position:absolute;
+         align-items: flex-end;
+         bottom: 0;
+         margin: 20px;
+         margin-left: 25px;
+      }
+
+      a .overlay{
+         background-color: rgba(0, 0, 0, 0.2);
+         width: 100%;
+         height: 100%;
+         transition: all ease 0.3s;
+      }
+
+      .right a:hover{
+         flex-grow: 3;
+      }
+
+      a:hover .overlay{
+         background: linear-gradient(rgba(0,0,0,0) 75%, rgba(0,0,0,0.5));
+      }
+
+      a:hover .overlay p{
+         opacity: 1;
+      }
+
+      #musnav{
+         background-image: url(https://i.postimg.cc/Cx6ByjnC/image-23.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      #facnav{
+         background-image: url(https://i.postimg.cc/4dGhwXhj/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      #exhinav{
+         background-image: url(https://i.postimg.cc/SNP236M6/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      #parknav{
+         background-image: url(https://i.postimg.cc/nVRC94Ty/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      /*   오른쪽 끝   */
+      /* 푸터 시작 */
+
+      footer{
+         background-color: #3F3632;
+         color: #B2AFAD;
+         text-align: center;
+         align-items: center;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      footer a{
+         color: #B2AFAD;
+      }
+
+      .footertop{
+         width: 1000px;
+         height: 200px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         text-align: left;
+      }
+
+      .sec{
+         height: 71px;
+         display: flex;
+         align-items: left;
+         flex-direction: column;
+         justify-content: space-between;
+      }
+
+      .sec1{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2inner{
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .sec2 .iandf{
+         margin-left: 15px;
+      }
+
+      .sec3 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec3 h2{
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .footerbottom{
+         width: 1000px;
+         height: 150px;
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+      }
+
+      hr{
+         border-color: rgba(225, 225, 225, 0.6);
+      }
+
+      .footerbottom p{
+         margin-top: 75px;
+         font-weight: 300;
+         font-size: 12px;
+         line-height: 15px;
+      }
+
+/*   푸터 끝   */
+      
+
+
+
+   </style>
+</head>
+<body>
+   <header>
+      <div class="bg">
+         <div class="left">
+            <div class="navi">
+               <a class="lang" href="#"><b>KOR</b> | ENG</a>
+               <a class="expl" href="main.html">Seoul Olympic Museum of Art</a>
+               <div class="innernavi">
+                  <img src="https://i.postimg.cc/L4WCw16z/image.png">
+                  <img class="ham" src="https://i.postimg.cc/kGLTbkhj/image.png" width="30px" height="19px">
+               </div>
+            </div>
+            <div class="mainstuff">
+               <div class="manulist">
+                  <div class="mn"> 
+                     <div class="menu"></div> 
+                     <a class="menu1" href="sub5.html">오시는 길</a>
+                  </div>
+                  <div class="mn">
+                     <div class="menu"></div>
+                      <a class="menu1" href="#">소마 소식</a>
+                  </div>
+                  <div class="mn">
+                     <div class="menu"></div>
+                     <a class="menu1" href="#">시설 대관</a>
+                  </div>
+                  <div id="num4" class="mn">
+                     <div class="menu"></div>
+                     <a class="menu1" href="#">교육 신청</a>
+                  </div>
+               </div>
+               <div class="logo">
+                  <img src="https://i.postimg.cc/BnQZXkH5/image.png">
+               </div>
+            </div>
+         </div>
+
+         <div class="right">
+            <div class="navigation">
+               <a id="musnav" href="sub1.html">
+                  <div class="overlay">
+                     <div class="overlay2">
+                        <h1>미술관 소개</h1>
+                        <p>자연과 소통하는 도심 속의 예술 쉼터,  소마 미술관입니다.</p>
+                     </div>
+                  </div>
+               </a>
+               <a id="facnav" href="sub2-1.html">
+                  <div class="overlay">
+                     <div class="overlay2">
+                        <h1>시설 안내</h1>
+                        <p>관람객과 작품이 교감하는 소마 미술관의 공간을 소개합니다.</p>
+                     </div>
+                  </div>
+               </a>
+               <a id="exhinav" href="sub3-1.html">
+                  <div class="overlay">
+                     <div class="overlay2">
+                        <h1>전시</h1>
+                        <p>고품격 소장품 전시와 수준 높은 기획전시를 소개합니다.</p>
+                     </div>
+                  </div>
+               </a>
+               <a id="parknav" href="sub4-1.html">
+                  <div class="overlay">
+                     <div class="overlay2">
+                        <h1>올림픽조각공원</h1>
+                        <p>도심 속에서 자연과 문화를 느낄 수 있는 올림픽조각공원입니다.</p>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+   </header>
+   <footer>
+         <div class="footertop">
+
+            <div class="sec sec1">
+               <div class="link">
+                  <a class="footer1" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200216" target="_blank">・ 개인정보처리방침</a>
+                  <a class="footer2" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200218" target="_blank">・ 홈페이지저작권정책</a>
+               </div>
+               <div class="add">
+                  <p>(05540) 서울시 송파구 올림픽로 424<br>(방이동, 올림픽공원) 소마미술관</p>
+               </div>
+            </div>
+
+            <div class="sec sec2">
+               <p>FOLLOW US</p>
+               <div class="sec2inner">
+                  <div class="yandb">
+                     <div class="1">
+                        <a class="yt" href="https://www.youtube.com/channel/UCSqM3n8PAPCPD7SGXd7UfAQ" target="_blank">Youtube</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                     <div class="2">
+                        <a class="blog" href="https://blog.naver.com/somamuseum" target="_blank">Naver Blog</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                  </div>
+                  <div class="iandf">
+                     <div class="3">
+                        <a class="ins" href="https://www.instagram.com/soma_museum/" target="_blank">Instagram</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                     <div class="4">
+                        <a class="face" href="https://www.facebook.com/SOMAmuseum/" target="_blank">Instagram</a>
+                        <img src="https://i.postimg.cc/v821nCWv/image.png">
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="sec sec3">
+               <p>CONTACT US</p>
+               <h2>TEL 02-425-1077<br>FAX 02-410-1339</h2>
+            </div>
+         </div>
+
+         <div class="footerbottom">
+            <hr class="line">
+            <p>COPYRIGHT ⓒ 2019 Seoul Olympic Museum of Arts. ALL RIGHTS RESERVED.</p>
+         </div>
+   </footer>
+
+   
+
+</body>
+</html>

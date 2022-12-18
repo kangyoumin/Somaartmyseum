@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   <title>현재전시</title>
+   <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Raleway:wght@500&display=swap');
+      *{
+         margin: 0;
+         padding: 0;
+         text-decoration: none;
+         list-style: none;
+         box-sizing: border-box;
+         font-family: 'Inter';
+         font-style: normal;
+      }
+
+       .navi{
+         width: 100%;
+         background-color: rgba(255, 255, 255,0);
+         z-index: 2100;
+         
+         /* display: flex; 
+         
+         align-items: center; */
+         /* justify-content: space-between; */
+         padding-top: 35px;
+         text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+/*         position: absolute;*/
+         position: fixed;
+         
+      }
+      .ee{
+	    margin: 0 auto;
+	    height: 80px;
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: center;
+	    width: 1000px; 
+	   /* background-color: #EF8632; */
+		}
+	 .active{
+	    background-color: rgba(255, 255, 255, 0.9);
+	    transition-duration: 0.5s;
+	    transition-timing-function: ease;
+	    z-index: 2000;
+	    -webkit-transition-duration:0.4s;
+	    -webkit-transition-timing-function:ease;
+	  }
+
+
+	  .active ul li a{
+	    color: #474747;
+	  }
+	  .active a.lang{
+	   color: #474747;
+	  }
+	  .active ul li a
+	  .deactive{
+	    
+	    background-color: transparent;
+	    transition-duration: 0.5s;
+	    transition-timing-function: ease;
+	    
+	    -webkit-transition-duration:0.4s;
+	    -webkit-transition-timing-function:ease;
+	  }
+
+
+	  .tab_content {
+	  	text-align:center;font-size:0; position:absolute; width: 100%; top:700px; left: 50%; overflow: hidden;
+	    transform: translateX(-50%);
+	}
+	  input[type="radio"] {display:none;}
+	  input[id="tab01"] + label {position: absolute; top: 445px; left: 180px; transition: all 0.7s ease; display:inline-block;width: 40px; height: 40px;  line-height: 40px; background:#EF8632;color:#fff;font-size:20px;cursor:pointer; border-radius: 20px;  } 
+	  input[id="tab02"] + label {position: absolute; top: 445px; right: 180px;transition: all 0.7s ease; display:inline-block;width: 40px; height: 40px;  line-height: 40px; background:#EF8632;color:#fff;font-size:20px;cursor:pointer; border-radius: 20px;  } 
+	  
+	  input[type="radio"]:checked + label {background:#c2c2c2;color:#fff; transition: all 0.7s ease;}
+	 
+	  
+	  .conbox {display: none; text-align:center;font-size:12px;box-sizing:border-box; margin-top: 80px; } 
+	  input[id="tab01"]:checked ~ .con1 {display:block;} 
+	  input[id="tab02"]:checked ~ .con2 {display:block;}
+
+	  /* .tab_shadow{
+	      background-color: rgb(255, 255, 255);
+	      position: absolute;
+	      width: 1200px;
+	      height: 80px;
+	      left: 50%;
+	      transform: translateX(-50%);
+	      z-index: -1;
+	      border-radius: 40px;
+	      box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.1);
+	  } */
+
+
+
+      /*헤더시작*/
+
+      .top{
+         height: 500px;
+         display: flex; 
+         flex-direction: column;
+         justify-content: space-between;
+         align-items: center;
+
+         position:relative;
+         
+         background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.3), rgba(0,0,0,0.45)), url(https://i.postimg.cc/wjvc1hxr/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      
+      .navi .logo1{
+         background-image: url(https://i.postimg.cc/YCK7mLDq/image.png);
+         background-position: center;
+            background-repeat: no-repeat;
+           background-size: cover;
+           width: 113px;
+           height: 50.65px;
+      }
+
+      .Menu{
+         display: flex; 
+         flex-wrap: wrap; 
+         justify-content: center;
+         gap: 25px;
+      }
+
+      .Menu a{
+         color: white;
+         font-weight: 400;
+         font-size: 16px;
+         line-height: 19px;
+         transition: all ease 0.2s;
+      }
+
+      .Menu a:hover{
+         font-weight: 700;
+         font-size: 17px;
+      }
+
+      .lang{
+         color: white;
+         font-size: 12px;
+         line-height: 15px;
+      }
+
+      .title{
+         display: flex; 
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 40px;
+         margin-top: 377px;
+      }
+
+      .title h1{
+         color: white;
+         font-weight: 700;
+         font-size: 40px;
+         line-height: 48px;
+         letter-spacing: 0.03em;
+         text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .lower{
+         width: 1000px;
+         display: flex; 
+         justify-content: center;
+         align-items: flex-end;
+      }
+
+      .bk a{
+         color: white;
+         background: rgba(239, 134, 50, 0.5);
+         border-radius: 15px;
+         text-align: center;
+         height: 30px;
+
+         display: inline-block;
+          padding: 8px 29px;
+
+          font-weight: 500;
+         font-size: 12px;
+         line-height: 15px;
+         letter-spacing: 0.03em;
+
+         transition: all ease 0.3s;
+      }
+
+      .bk a:hover{
+         background-color: #EF8632;
+      }
+
+      .oline{
+         width: 80px;
+         height: 4px;
+         background-color: #EF8632;
+         margin-left: 333px;
+      }
+
+      .icon{
+         width: 90px;
+         height: 30px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         margin-left: 371px;
+      }
+
+      .ham{
+         width: 30px;
+         height: 19px;
+         background-image: url(https://i.postimg.cc/hPxL0Nsb/image.png);
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         position: relative;
+      }
+
+      .hovermenu{
+         right:  0px;        /*   햄버거 메뉴 나오는 부분 높이값 */
+         top: 50px;
+         position: absolute;
+         width: 120px;
+         height: 200px;
+         background-color: #FEF5EF;
+         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+         border-radius: 5px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: column;
+         z-index: 100;
+         position: absolute;
+         transition: all ease 0.3s;
+
+         opacity: 0;
+      }
+
+      .hovermenu a{
+         font-weight: 500;
+         font-size: 16px;
+         line-height: 19px;
+         color: #F29E5B;
+         margin-bottom: 15px;
+      }
+
+      .hovermenu a:hover{
+         font-weight: 700;
+         color: #EF8632;
+      }
+
+      .inmenu{
+         margin-top: 39px;
+         display: flex; 
+         justify-content: center;
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: column;
+      }
+
+      .ham:hover .hovermenu{
+         opacity: 1;
+      }
+
+   
+/*      헤더 끝*/
+/*      메인 시작*/
+
+      .connavi{
+         width: 1000px;
+         height: 109px;
+         border-width: 3px;
+         border-style: solid none;
+         border-color: #EF8632;
+         margin-right: auto;
+         margin-left: auto;
+         margin-top: 100px;
+         display: flex; 
+         justify-content: center;
+      }
+
+      .cn{
+         width: 1000px;
+         display: flex; 
+         align-items: center;
+         justify-content: space-between;
+         flex-direction: row;
+         padding-left: 218px;
+         padding-right: 218px;
+      }
+
+      .cn a{
+         font-weight: 400;
+         font-size: 20px;
+         color: #F29E5B;
+         }
+
+      .cn .now{
+         color: #EF8632;
+         font-weight: 700;
+      }
+
+      .cn a:hover{
+         color: #EF8632;
+         font-weight: 700;
+      }
+
+      .bigbox{
+         width: 1004px;
+         margin-right: auto;
+         margin-left: auto;
+         margin-top: 60px;
+         margin-bottom: 100px;
+
+      }
+
+      .content{
+         display: flex;
+         justify-content: space-between;
+      }
+
+      .exhi1 .img{
+         background-image: url(https://i.postimg.cc/htZ53D3X/image-74.png);
+      }
+
+      .exhi2 .img{
+         background-image: url(https://i.postimg.cc/d1rN18QC/image-75.png);
+      }
+
+      .con2 .exhi1 .img{
+         background-image: url(https://i.postimg.cc/CLYVt4dc/image-91.png);
+      }
+
+      .con2 .exhi2 .img{
+         background-image: url(https://i.postimg.cc/L6TMMZ12/image-92.png);
+      }
+
+      .img{
+         width: 480px;
+         height: 280px;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         box-shadow:  0px 4px 20px rgba(0, 0, 0, 0.15);
+         margin-bottom: 15px;
+         transition: all 0.3s ease-in-out;
+      }
+
+      .img:hover{
+         transform: translateY(-8px);
+         box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .infor h2{
+         font-style: normal;
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+         letter-spacing: 0.03em;
+         color: #474747;
+         margin-bottom: 8px;
+      }
+
+      .infor p{
+         font-size: 16px;
+         line-height: 19px;
+         letter-spacing: 0.03em;
+         color: #474747;
+      }
+
+      .arrows{
+         margin-top: 40px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+      }
+
+      .bar{
+         width: 480px;
+         height: 2px;
+         background-color: #C2C2C2;
+         
+      }
+
+      .innerbar{
+         width: 240px;
+         height: 4px;
+         background-color: #EF8632;
+         position: absolute;
+         
+      }
+
+      .con2 .innerbar{
+         width: 240px;
+         height: 4px;
+         background-color: #EF8632;
+         position: absolute;
+         margin-left: 240px;
+      }
+
+
+
+      /*메인 끝*/
+
+
+
+      /* 푸터 시작 */
+
+      footer{
+         background-color: #3F3632;
+         color: #B2AFAD;
+         text-align: center;
+         align-items: center;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      footer a{
+         color: #B2AFAD;
+      }
+
+      .footertop{
+         width: 1000px;
+         height: 200px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         text-align: left;
+      }
+
+      .sec{
+         height: 71px;
+         display: flex;
+         align-items: left;
+         flex-direction: column;
+         justify-content: space-between;
+      }
+
+      .sec1{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec2inner{
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .sec2 .iandf{
+         margin-left: 15px;
+      }
+
+      .sec3 p{
+         font-weight: 300;
+         font-size: 14px;
+         line-height: 17px;
+      }
+
+      .sec3 h2{
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+
+      .footerbottom{
+         width: 1000px;
+         height: 150px;
+         display: flex;
+         flex-direction: column;
+         text-align: center;
+      }
+
+      hr{
+         border-color: rgba(225, 225, 225, 0.6);
+      }
+
+      .footerbottom p{
+         margin-top: 75px;
+         font-weight: 300;
+         font-size: 12px;
+         line-height: 15px;
+      }
+
+/*   푸터 끝   */
+
+
+   </style>
+
+</head>
+<body>
+   <header>
+      <div class="top">
+            <div class="navi deactive" id="navbar">
+               <div class="ee">
+               <a class="logo1" href="file:///Users/kangyoumin/Desktop/%E1%84%8B%E1%85%B0%E1%86%B8%E1%84%91%E1%85%A5%20%E1%84%80%E1%85%B5%E1%84%86%E1%85%A1%E1%86%AF/index.html"></a>
+               <ul class="Menu">
+                  <li><a href="sub1.html">미술관 소개</a></li>
+                  <li><a href="sub2-1.html">시설 안내</a></li>
+                  <li><a href="sub3-1.html">전시</a></li>
+                  <li><a href="sub4-1.html">올림픽조각공원</a></li>
+                  <li><a href="#">ON SOMA</a></li>
+                  <li><a href="#">아카데미 교육</a></li>
+               </ul>
+               <a class="lang" href="#"><b>KOR</b> | ENG</a>
+               </div>
+            </div>
+
+            <div class="title">
+               <h1>전시</h1>
+               <div class="lower">
+                  <div class="bk">
+                     <a href="#">전시관람 예약</a>
+                  </div>
+                  <div class="oline"></div>
+                  <div class="icon">
+                     <img src="https://i.postimg.cc/2jgdhCQS/image.png" width="30px" height="30px">
+                     <div class="ham">
+                           <div class="hovermenu">
+                              <div class="inmenu">
+                                 <a href="sub5.html">오시는 길</a>
+                                 <a href="#">소마 소식</a>
+                                 <a href="#">시설 대관</a>
+                                 <a href="#">교육 신청</a>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </div>
+   </header>
+
+   <div class="connavi">
+      <ul class="cn">
+         <li><a class="now" href="sub3-1.html">현재 전시</a></li>
+         <li><a href="#">전체 전시</a></li>
+         <li><a href="#">소마 소장품</a></li>
+      </ul>
+
+
+   </div>
+
+
+   <div class="tab_content">
+        <input type="radio" name="tabmenu" id="tab01" checked class="tab">
+        <label for="tab01"><</label>
+        <input type="radio" name="tabmenu" id="tab02"class="tab">
+        <label for="tab02">></label>
+
+
+
+      <div class="con1 conbox">
+      <div class="bigbox">
+      <div class="content">
+         <div class="exhibition">
+            <div class="exhi1">
+               <div class="img"></div>
+            </div>
+            <div class="infor">
+               <h2>Into Drawing 47 이성재<할머니는 아빠의 엄마></h2>
+               <p>2022.11.25 (금) ~ 2022.12.25 (일)</p>
+            </div>
+         </div>
+
+         <div class="content">
+         <div class="exhibition">
+            <div class="exhi2">
+               <div class="img"></div>
+            </div>
+            <div class="infor">
+               <h2>MOVE SOMA 3: Neverland_9개의 소우주</h2>
+               <p>2022.11.11 (금) ~ 2023.01.31 (화)</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="arrows">
+      
+      <div class="bar">
+         <div class="innerbar"></div>
+      </div>
+      
+   </div>
+      
+   </div>
+
+
+
+
+   <footer>
+      <div class="footertop">
+
+         <div class="sec sec1">
+            <div class="link">
+               <a class="footer1" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200216" target="_blank">・ 개인정보처리방침</a>
+               <a class="footer2" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200218" target="_blank">・ 홈페이지저작권정책</a>
+            </div>
+            <div class="add">
+               <p>(05540) 서울시 송파구 올림픽로 424<br>(방이동, 올림픽공원) 소마미술관</p>
+            </div>
+         </div>
+
+         <div class="sec sec2">
+            <p>FOLLOW US</p>
+            <div class="sec2inner">
+               <div class="yandb">
+                  <div class="1">
+                     <a class="yt" href="https://www.youtube.com/channel/UCSqM3n8PAPCPD7SGXd7UfAQ" target="_blank">Youtube</a>
+                     <img src="https://i.postimg.cc/v821nCWv/image.png">
+                  </div>
+                  <div class="2">
+                     <a class="blog" href="https://blog.naver.com/somamuseum" target="_blank">Naver Blog</a>
+                     <img src="https://i.postimg.cc/v821nCWv/image.png">
+                  </div>
+               </div>
+               <div class="iandf">
+                  <div class="3">
+                     <a class="ins" href="https://www.instagram.com/soma_museum/" target="_blank">Instagram</a>
+                     <img src="https://i.postimg.cc/v821nCWv/image.png">
+                  </div>
+                  <div class="4">
+                     <a class="face" href="https://www.facebook.com/SOMAmuseum/" target="_blank">Instagram</a>
+                     <img src="https://i.postimg.cc/v821nCWv/image.png">
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="sec sec3">
+            <p>CONTACT US</p>
+            <h2>TEL 02-425-1077<br>FAX 02-410-1339</h2>
+         </div>
+      </div>
+
+      <div class="footerbottom">
+         <hr class="line">
+         <p>COPYRIGHT ⓒ 2019 Seoul Olympic Museum of Arts. ALL RIGHTS RESERVED.</p>
+      </div>
+</footer>
+
+</div> 
+
+
+<!-- //cont2 -->
+<div class="con2 conbox">
+   <div class="bigbox">
+   <div class="content">
+      <div class="exhibition">
+         <div class="exhi1">
+            <div class="img"></div>
+         </div>
+         <div class="infor">
+            <h2>이만익-별을 그리는 마음</h2>
+            <p>2022.11.25 (금) ~ 2022.12.25 (일)</p>
+         </div>
+      </div>
+
+      <div class="content">
+      <div class="exhibition">
+         <div class="exhi2">
+            <div class="img"></div>
+         </div>
+         <div class="infor">
+            <h2>뒤뷔페 그리고 빌레글레 展</h2>
+            <p>2022.10.01 (토) ~ 2023.01.31 (화)</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="arrows">
+
+   <div class="bar">
+      <div class="innerbar"></div>
+   </div>
+   
+</div>
+   
+</div>
+
+
+
+
+<footer>
+   <div class="footertop">
+
+      <div class="sec sec1">
+         <div class="link">
+            <a class="footer1" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200216" target="_blank">・ 개인정보처리방침</a>
+            <a class="footer2" href="https://www.kspo.or.kr/kspo/main/contents.do?menuNo=200218" target="_blank">・ 홈페이지저작권정책</a>
+         </div>
+         <div class="add">
+            <p>(05540) 서울시 송파구 올림픽로 424<br>(방이동, 올림픽공원) 소마미술관</p>
+         </div>
+      </div>
+
+      <div class="sec sec2">
+         <p>FOLLOW US</p>
+         <div class="sec2inner">
+            <div class="yandb">
+               <div class="1">
+                  <a class="yt" href="https://www.youtube.com/channel/UCSqM3n8PAPCPD7SGXd7UfAQ" target="_blank">Youtube</a>
+                  <img src="https://i.postimg.cc/v821nCWv/image.png">
+               </div>
+               <div class="2">
+                  <a class="blog" href="https://blog.naver.com/somamuseum" target="_blank">Naver Blog</a>
+                  <img src="https://i.postimg.cc/v821nCWv/image.png">
+               </div>
+            </div>
+            <div class="iandf">
+               <div class="3">
+                  <a class="ins" href="https://www.instagram.com/soma_museum/" target="_blank">Instagram</a>
+                  <img src="https://i.postimg.cc/v821nCWv/image.png">
+               </div>
+               <div class="4">
+                  <a class="face" href="https://www.facebook.com/SOMAmuseum/" target="_blank">Instagram</a>
+                  <img src="https://i.postimg.cc/v821nCWv/image.png">
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="sec sec3">
+         <p>CONTACT US</p>
+         <h2>TEL 02-425-1077<br>FAX 02-410-1339</h2>
+      </div>
+   </div>
+
+   <div class="footerbottom">
+      <hr class="line">
+      <p>COPYRIGHT ⓒ 2019 Seoul Olympic Museum of Arts. ALL RIGHTS RESERVED.</p>
+   </div>
+</footer>
+</div>
+
+</div>
+<!-- //cont1 -->
+
+   
+
+   <script>
+      $(function(){
+    // 스크롤 시 header fade-in
+    $(document).on('scroll', function(){
+        if($(window).scrollTop() > 100){
+            $("#navbar").removeClass("deactive");
+            $("#navbar").addClass("active");
+        }else{
+            $("#navbar").removeClass("active");
+            $("#navbar").addClass("deactive");
+        }
+    })
+
+});
+   </script>
+
+</body>
+</html>
+
